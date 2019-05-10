@@ -1,0 +1,17 @@
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2.csprojAssemblyReference.cache
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\MainWindow.g.cs
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\Pages\AddToBase.g.cs
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\App.g.cs
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2_MarkupCompile.cache
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2_MarkupCompile.lref
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\Pages\AddToBase.baml
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\bin\Debug\BSK_2.exe.config
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\bin\Debug\BSK_2.exe
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\bin\Debug\BSK_2.pdb
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\MainWindow.baml
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2.g.resources
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2.Properties.Resources.resources
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2.csproj.GenerateResource.cache
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2.csproj.CoreCompileInputs.cache
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2.exe
+E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\BSK_2.pdb
