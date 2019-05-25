@@ -45,16 +45,17 @@ namespace BSK_2.Pages
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("Insert into Movies (Name,Categorie,Description,Photo) values('" + name + "', '" + category + "', '" + description + "', '"+ protection + "')", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("Insert into Film (Nazwa,Typ,Opis) values('" + name + "', '" + category + "', '" + description + "')", sqlConnection);
                 sqlCommand.CommandType = System.Data.CommandType.Text;
                 sqlCommand.ExecuteNonQuery();
                 ResetBoxes();
             }
         }
-     
+
+        // database name = BSK_2
         static private string GetConnectionString()
         {
-            return "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=User_BKS_2;Data Source=(local)";
+            return "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BSK_2;Data Source=(local)";
         }
         private void Click_Photo(object sender, RoutedEventArgs e)
         {
@@ -62,8 +63,7 @@ namespace BSK_2.Pages
             var photoPath = string.Empty;
 
             openFile = new OpenFileDialog();
-            openFile.Filter =
-                "Image files (*.png;*.jpeg)|*.png;*.jpeg";
+            openFile.Filter ="Image files (*.png;*.jpeg)|*.png;*.jpeg";
 
             if (openFile.ShowDialog() == true)
             {

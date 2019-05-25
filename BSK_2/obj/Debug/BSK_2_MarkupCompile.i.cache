@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Data_base_access_control_mechanism\BSK_2\BSK_2\obj\Debug\
+S:\Informatyka [sem. 6]\Custom\Bezpieczenstwo Systemow Komputerowych\Projekt 2\BSK_2\obj\Debug\
 BSK_2
 none
 false
 DEBUG;TRACE
-E:\Data_base_access_control_mechanism\BSK_2\BSK_2\App.xaml
-2-1160520921
+S:\Informatyka [sem. 6]\Custom\Bezpieczenstwo Systemow Komputerowych\Projekt 2\BSK_2\App.xaml
+6-1867135736
 
-11489810768
+151937867973
 131569487696
-MainWindow.xaml;Pages\AddToBase.xaml;
+MainWindow.xaml;Pages\AddToBase.xaml;Pages\ErrorPage.xaml;Pages\LoginPage.xaml;Pages\MoviesPage.xaml;Pages\RegistrationPage.xaml;
 
-True
+False
 

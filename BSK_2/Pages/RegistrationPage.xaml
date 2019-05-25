@@ -1,0 +1,28 @@
+﻿<Page x:Class="BSK_2.Pages.RegistrationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BSK_2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RegistrationPage">
+
+    <Grid Margin="10,0,10,10">
+        <GroupBox Header="Register" Height="250" Margin="0" Width="400" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE07B7B">
+            <Grid>
+                <Label Content="Login:" Margin="20,51,102,149" Foreground="Black"/>
+                <TextBox Name="loginBox" HorizontalAlignment="Center" Margin="86,53,102,149" TextWrapping="Wrap" VerticalAlignment="Center" Width="200" Height="26" Background="White"/>
+                <Label Content="Password:" Margin="20,94,102,108" Foreground="Black"/>
+                <PasswordBox  Name="passwordBox" HorizontalAlignment="Center" Margin="86,96,102,108" VerticalAlignment="Center" Width="200" Height="24"/>
+                <Label Content="Confirm" Margin="20,130,102,62" Foreground="Black"/>
+                <Label Content ="Password:" Margin="20,144,102,60" Foreground="Black"/>
+                <PasswordBox  Name="passwordConfirmBox" HorizontalAlignment="Center" Margin="86,137,102,67" VerticalAlignment="Center" Width="200" Height="24"/>
+                <Button Content="i" Margin="0,-76,70,20"  Width="20" Height="18" Click="Login_Info_Click" Foreground="#FF020202" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Button Content="i" Margin="0,8,70,20" Width="20" Height="18" Click="Password_Info_Click" Foreground="#FF020202" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Button Content="Submit" HorizontalAlignment="Center" Margin="148,0,164,20" VerticalAlignment="Bottom" Click="Button_Click" Width="76"/>
+                <Label Content="" Name="FailureMessage" Margin="86,158,102,42" Foreground="Red"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Page>
