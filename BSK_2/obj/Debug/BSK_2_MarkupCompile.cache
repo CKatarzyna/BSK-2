@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 S:\Informatyka [sem. 6]\Custom\Bezpieczenstwo Systemow Komputerowych\Projekt 2\BSK_2\App.xaml
-6-1867135736
+9839860536
 
-11-25738418
-131569487696
-MainWindow.xaml;Pages\AddToBase.xaml;Pages\ErrorPage.xaml;Pages\LoginPage.xaml;Pages\MoviesPage.xaml;Pages\RegistrationPage.xaml;
+18-1260211285
+151984215308
+MainWindow.xaml;Pages\AddToBase.xaml;Pages\Update\UpdatePageActor.xaml;Pages\Update\UpdatePageDirector.xaml;Pages\ErrorPage.xaml;Pages\LoginPage.xaml;Pages\MovieDetails.xaml;Pages\MoviesPage.xaml;Pages\RegistrationPage.xaml;
 
 False
 

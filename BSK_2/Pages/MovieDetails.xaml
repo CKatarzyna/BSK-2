@@ -1,0 +1,40 @@
+﻿<Page x:Class="BSK_2.Pages.MovieDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BSK_2.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1050"
+      Title="MovieDetails">
+
+    <Grid Margin="10,0,10,10">
+
+        <Label Name="infoLabel"  Margin="305,30,305,0" VerticalAlignment="Top" Width="170" Height="25"/>
+        <ListView  Name="listViewDirectors"  Margin="168,140,168,452" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" MaxWidth="590" MaxHeight="98" Width="590" Height="98" SelectionChanged="listViewDirectors_SelectionChanged" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Surname" Width="50" DisplayMemberBinding="{Binding Surname}" />
+                    <GridViewColumn Header="Nationality" Width="50" DisplayMemberBinding="{Binding Nationality}" />
+                    <GridViewColumn Header="Date of birth" Width="50" DisplayMemberBinding="{Binding DateOfBirth}" />
+                    <GridViewColumn Header="Source" Width="50" DisplayMemberBinding="{Binding Source}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView  Name="listViewActors" Height="154" Width="590" Margin="168,290,168,246" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="listViewActors_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Surname" Width="50" DisplayMemberBinding="{Binding Surname}" />
+                    <GridViewColumn Header="Nationality" Width="50" DisplayMemberBinding="{Binding Nationality}" />
+                    <GridViewColumn Header="Date of birth" Width="50" DisplayMemberBinding="{Binding DateOfBirth}" />
+                    <GridViewColumn Header="Bibliography" Width="50" DisplayMemberBinding="{Binding Bibliography}" />
+                    <GridViewColumn Header="Source" Width="50" DisplayMemberBinding="{Binding Source}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="In order to edit just select right content." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="168,579,168,0" Height="35" Width="590" BorderBrush="#FF1F34BB" BorderThickness="1"/>
+
+    </Grid>
+</Page>

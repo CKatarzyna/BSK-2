@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -35,7 +36,11 @@ namespace BSK_2.Pages
 
             //
             //jesli wszystko ok to polaczenie z baza danych 
-            string connectionString = GetConnectionString();
+
+            DataBase dataBaseMovie = new DataBase();
+            
+            string connectionString = dataBaseMovie.GetConnectionString();
+
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
@@ -44,23 +49,31 @@ namespace BSK_2.Pages
 
                 SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
                 sqlDataAdapter.SelectCommand = sqlCommand;
-
                 DataTable dataTable = new DataTable();
+                List<Movie> items = new List<Movie>();
                 sqlDataAdapter.Fill(dataTable);
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    {
-                        Console.WriteLine("{0}", row["Nazwa"]);
-                    }
+                   items.Add(new Movie() { Name = row["Nazwa"].ToString(), Type = row["Typ"].ToString(), Year = row["Rok_Wydania"].ToString(),
+                            Rating = row["Ocena"].ToString(), Source = row["Odnosnik"].ToString() });
                 }
-               // image_3.Source = new BitmapImage(new Uri("https://images.immediate.co.uk/production/volatile/sites/3/2019/03/09B_AEG_DomPayoff_1Sht_REV-7c16828.jpg?quality=90&resize=620,413"));
-
+                lvUsers.ItemsSource = items;
             }
         }
 
-        static private string GetConnectionString()
+        private void lvUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            return "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BSK_2;Data Source=(local)";
+            var item = (System.Windows.Controls.ListView)sender;
+            var movie = (Movie)item.SelectedItem;
+
+            MovieDetails movieDetails = new MovieDetails(movie);
+            this.NavigationService.Navigate(movieDetails);
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }
