@@ -8,33 +8,46 @@
       d:DesignHeight="800" d:DesignWidth="1050"
       Title="MovieDetails">
 
-    <Grid Margin="10,0,10,10">
+    <Grid>
+        <Grid Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
 
-        <Label Name="infoLabel"  Margin="305,30,305,0" VerticalAlignment="Top" Width="170" Height="25"/>
-        <ListView  Name="listViewDirectors"  Margin="168,140,168,452" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" MaxWidth="590" MaxHeight="98" Width="590" Height="98" SelectionChanged="listViewDirectors_SelectionChanged" >
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Surname" Width="50" DisplayMemberBinding="{Binding Surname}" />
-                    <GridViewColumn Header="Nationality" Width="50" DisplayMemberBinding="{Binding Nationality}" />
-                    <GridViewColumn Header="Date of birth" Width="50" DisplayMemberBinding="{Binding DateOfBirth}" />
-                    <GridViewColumn Header="Source" Width="50" DisplayMemberBinding="{Binding Source}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView  Name="listViewActors" Height="154" Width="590" Margin="168,290,168,246" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="listViewActors_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Surname" Width="50" DisplayMemberBinding="{Binding Surname}" />
-                    <GridViewColumn Header="Nationality" Width="50" DisplayMemberBinding="{Binding Nationality}" />
-                    <GridViewColumn Header="Date of birth" Width="50" DisplayMemberBinding="{Binding DateOfBirth}" />
-                    <GridViewColumn Header="Bibliography" Width="50" DisplayMemberBinding="{Binding Bibliography}" />
-                    <GridViewColumn Header="Source" Width="50" DisplayMemberBinding="{Binding Source}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Label Content="In order to edit just select right content." VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="168,579,168,0" Height="35" Width="590" BorderBrush="#FF1F34BB" BorderThickness="1"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="98*"/>
+                <RowDefinition Height="513*"/>
+                <RowDefinition Height="92*"/>
+                <RowDefinition Height="97*"/>
+            </Grid.RowDefinitions>
+            <Label Name="infoLabel"  Height="35" Width="590"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Row="0" BorderBrush="#FF1F34BB" BorderThickness="1" />
+            <Label Content="In order to edit just select right content." Height="35" Width="590" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Row="3" BorderBrush="#FF1F34BB" BorderThickness="1" />
+            <Button Content="Delete this movie" Grid.Row="2" VerticalAlignment="Center" Width="114" HorizontalAlignment="Center" Height="20"/>
 
+            <ListView  Name="listViewDirectors" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" MaxWidth="590" MaxHeight="98" Width="590" Height="98" SelectionChanged="listViewDirectors_SelectionChanged" Margin="0,0,0,306" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Surname" Width="100" DisplayMemberBinding="{Binding Surname}" />
+                        <GridViewColumn Header="Nationality" Width="80" DisplayMemberBinding="{Binding Nationality}" />
+                        <GridViewColumn Header="Date of birth" Width="100" DisplayMemberBinding="{Binding DateOfBirth}" />
+                        <GridViewColumn Header="Source" Width="auto" DisplayMemberBinding="{Binding Source}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView  Name="listViewActors" Height="276" Width="590" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" SelectionChanged="listViewActors_SelectionChanged" Margin="0,0,0,-140">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Surname" Width="100" DisplayMemberBinding="{Binding Surname}" />
+                        <GridViewColumn Header="Nationality" Width="80" DisplayMemberBinding="{Binding Nationality}" />
+                        <GridViewColumn Header="Date of birth" Width="80" DisplayMemberBinding="{Binding DateOfBirth}" />
+                        <GridViewColumn Header="Bibliography" Width="100" DisplayMemberBinding="{Binding Bibliography}" />
+                        <GridViewColumn Header="Source" Width="auto" DisplayMemberBinding="{Binding Source}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
     </Grid>
 </Page>

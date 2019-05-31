@@ -9,23 +9,23 @@
       Title="UpdatePageActor"
       DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid Margin="10,0,10,10">
-        <GroupBox Header="Update Actor" Height="346" Margin="114,47,114,47.4" Width="552" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE07B7B">
+    <Grid Margin="0,0,0,0">
+        <GroupBox Header="Update Actor" Height="346" Width="590" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE07B7B">
             <Grid Margin="0,0,0,0.2">
 
-                <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="100,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" Text="{Binding ActorName}"/>
+                <TextBox x:Name="nameBox" HorizontalAlignment="Left" Height="23" Margin="100,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Text="{Binding ActorName}"/>
                 <Label x:Name="labelName" Content="Name:" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="0.482,-0.117"/>
 
-                <TextBox x:Name="surnameBox" HorizontalAlignment="Left" Height="23" Margin="100,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" Text="{Binding Surname}"/>
+                <TextBox x:Name="surnameBox" HorizontalAlignment="Left" Height="23" Margin="100,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Text="{Binding Surname}"/>
                 <Label x:Name="labelSurname" Content="Surname:" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Height="36" RenderTransformOrigin="0.482,-0.117" Width="63"/>
 
-                <TextBox x:Name="nationalityBox" HorizontalAlignment="Left" Height="23" Margin="100,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" Text="{Binding Nationality}"/>
+                <TextBox x:Name="nationalityBox" HorizontalAlignment="Left" Height="23" Margin="100,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Text="{Binding Nationality}"/>
                 <Label x:Name="labelNationality" Content="Nationality:" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="0.482,-0.117"/>
 
-                <TextBox x:Name="dateOfBirthBox" HorizontalAlignment="Left" Height="23" Margin="100,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" Text="{Binding DateOfBirth}"/>
+                <TextBox x:Name="dateOfBirthBox" HorizontalAlignment="Left" Height="23" Margin="100,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Text="{Binding DateOfBirth}"/>
                 <Label x:Name="labelDateOfBirth" Content="Date of birth:" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="0.482,-0.117"/>
 
-                <TextBox x:Name="sourceBox" HorizontalAlignment="Left" Height="23" Margin="100,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="413" Text="{Binding Source}"/>
+                <TextBox x:Name="sourceBox" HorizontalAlignment="Left" Height="23" Margin="100,179,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="453" Text="{Binding Source}"/>
                 <Label x:Name="labelSource" Content="Source:" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="0.482,-0.117"/>
 
                 <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Center"  Margin="0,0,0,64.8"  VerticalAlignment="Bottom" Width="100" Click="buttonUpdate_Click"/>
@@ -33,6 +33,6 @@
 
             </Grid>
         </GroupBox>
-        <Label Name="labelInfo" Content="Error! Please check if your command syntax is correct!" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="168,579,168,0" Height="35" Width="590" BorderBrush="#FF1F34BB" BorderThickness="1" Visibility="Hidden"/>
+        <Label Name="labelInfo" Content="Error! Please check if your command syntax is correct!" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,31" VerticalAlignment="Bottom" Height="35" Width="590" BorderBrush="#FF1F34BB" BorderThickness="1" Visibility="Hidden"/>
     </Grid>
 </Page>

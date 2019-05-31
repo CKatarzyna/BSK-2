@@ -9,33 +9,34 @@
       Title="MoviesPage">
 
     <Grid>
-        <Label Name="infoLabel" Content="" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Margin="440,30,440,0" VerticalAlignment="Top" Width="170" Height="25"/>
         <Grid Margin="0,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
 
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="137*"/>
-                <RowDefinition Height="396*"/>
-                <RowDefinition Height="267*"/>
+                <RowDefinition Height="98*"/>
+                <RowDefinition Height="513*"/>
+                <RowDefinition Height="92*"/>
+                <RowDefinition Height="97*"/>
             </Grid.RowDefinitions>
-            <ListView  Name="lvUsers" SelectionChanged="lvUsers_SelectionChanged" Height="238" Width="590" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
+            <Label Name="infoLabel" Content=""  Height="35" Width="590"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Row="0" BorderBrush="#FF1F34BB" BorderThickness="1" />
+
+            <ListView  Name="lvUsers" SelectionChanged="lvUsers_SelectionChanged" Height="403" Width="590" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Name" Width="180" DisplayMemberBinding="{Binding Name}" />
-                        <GridViewColumn Header="Type" Width="60" DisplayMemberBinding="{Binding Type}" />
+                        <GridViewColumn Header="Name" Width="200" DisplayMemberBinding="{Binding Name}" />
+                        <GridViewColumn Header="Type" Width="80" DisplayMemberBinding="{Binding Type}" />
                         <GridViewColumn Header="Year" Width="50" DisplayMemberBinding="{Binding Year}" />
                         <GridViewColumn Header="Rating" Width="60" DisplayMemberBinding="{Binding Rating}" />
-                        <GridViewColumn Header="Source" Width="140" DisplayMemberBinding="{Binding Source}" />
+                        <GridViewColumn Header="Source" Width="auto" DisplayMemberBinding="{Binding Source}" />
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Content="Button" Click="Button_Click" Grid.Row="2" VerticalAlignment="Center" Height="20" HorizontalAlignment="Center"/>
+            <Button Content="Insert new movie" Click="Button_Click" Grid.Row="2" VerticalAlignment="Center" Width="114" HorizontalAlignment="Center" Height="20"/>
+            <Label Content="In order to get the overview about the movie just select right content."  Height="35" Width="590" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Row="3" BorderBrush="#FF1F34BB" BorderThickness="1" />
 
         </Grid>
-
-
     </Grid>
 
 
