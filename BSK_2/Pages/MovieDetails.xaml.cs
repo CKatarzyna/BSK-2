@@ -21,6 +21,11 @@ namespace BSK_2.Pages
     /// </summary>
     public partial class MovieDetails : Page
     {
+        string selectedMovieTitle;
+
+        public Visibility Visible { get; private set; }
+        public System.Windows.Visibility Visibility { get; set; }
+
         public MovieDetails()
         {
             InitializeComponent();
@@ -30,8 +35,8 @@ namespace BSK_2.Pages
         {
             InitializeComponent();
 
-            string selectedMovieTitle = ((Movie)movie).Name;
-            infoLabel.Content = selectedMovieTitle;
+            selectedMovieTitle = ((Movie)movie).Name;
+            infoLabel2.Content = selectedMovieTitle;
 
             DataBase dataBaseMovie = new DataBase();
 
@@ -56,6 +61,17 @@ namespace BSK_2.Pages
 
             UpdatePageActor updatePageActor = new UpdatePageActor(actor);
             this.NavigationService.Navigate(updatePageActor);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DataBase dataBaseMovie = new DataBase();
+
+            deleteButton.IsEnabled = false;
+            if (dataBaseMovie.deleteMovie(selectedMovieTitle, dataBaseMovie.GetConnectionString()) == 1)
+            {
+                infoLabel.Content = "Success! Movie deleted!";
+            }
         }
     }
 }

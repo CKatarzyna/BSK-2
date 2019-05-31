@@ -145,7 +145,7 @@ namespace BSK_2
                 sqlCommand.Parameters.Add(sqlParameterSource);
 
                 sqlCommand.CommandType = System.Data.CommandType.Text;
-                returnValue = sqlCommand.ExecuteNonQuery(); 
+                returnValue = sqlCommand.ExecuteNonQuery();
             }
             return returnValue;
         }
@@ -185,6 +185,30 @@ namespace BSK_2
                 sqlCommand.CommandType = System.Data.CommandType.Text;
                 returnValue = sqlCommand.ExecuteNonQuery();
             }
+            return returnValue;
+        }
+
+        public int deleteMovie(string movieName, string connectionString)
+        {
+            //delete from Film
+            //where Film.Nazwa = 'The Professor';
+
+            int returnValue = 0;
+
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                SqlCommand sqlCommand = new SqlCommand("DELETE from Film " +
+                                                        "WHERE Film.Nazwa = @MovieName; ", sqlConnection);
+                SqlParameter sqlParameterName = new SqlParameter("@MovieName", movieName);
+
+                sqlCommand.Parameters.Add(sqlParameterName);
+
+                sqlCommand.CommandType = System.Data.CommandType.Text;
+                returnValue = sqlCommand.ExecuteNonQuery();
+            }
+
             return returnValue;
         }
     }
