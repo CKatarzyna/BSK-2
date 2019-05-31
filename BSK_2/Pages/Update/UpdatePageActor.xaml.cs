@@ -28,8 +28,9 @@ namespace BSK_2.Pages.Update
             InitializeComponent();
         }
 
-        public UpdatePageActor(object actor)
+        public UpdatePageActor(object actor, object movie = null)
         {
+            movieObject = movie;
             selectedMiveTitleToEdit = ((Actor)actor).Name;
             selectedMovieActorSurname = ((Actor)actor).Surname;
 
@@ -50,6 +51,8 @@ namespace BSK_2.Pages.Update
         public string DateOfBirth { get; set; }
         public string Source { get; set; }
         public Visibility Visible { get; private set; }
+        object movieObject;
+
 
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
         {
@@ -67,6 +70,13 @@ namespace BSK_2.Pages.Update
                 labelInfo.Visibility = Visible;
                 labelInfo.Content = "Success! (1 row(s) affected)";
             }
+        }
+
+        private void buttonReturn_Click(object sender, RoutedEventArgs e)
+        {
+            var movie = (Movie)movieObject;
+            MovieDetails movieDetails = new MovieDetails(movie);
+            this.NavigationService.Navigate(movieDetails);
         }
     }
 }

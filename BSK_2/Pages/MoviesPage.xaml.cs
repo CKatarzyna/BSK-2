@@ -24,15 +24,24 @@ namespace BSK_2.Pages
     /// 
     public partial class MoviesPage : Page
     {
+        public System.Windows.Visibility Visibility { get; set; }
+
         public MoviesPage()
         {
             InitializeComponent();
         }
 
-        public MoviesPage(string infoLabelString)
+        public MoviesPage(string infoLabelString = null)
         {
             InitializeComponent();
-            infoLabel.Content = infoLabelString;
+            if (infoLabelString != null)
+            {
+                infoLabel.Content = infoLabelString;
+            }
+            else
+            {
+                infoLabel.Visibility = Visibility.Hidden;
+            }
 
             //
             //jesli wszystko ok to polaczenie z baza danych 
@@ -68,7 +77,6 @@ namespace BSK_2.Pages
 
             MovieDetails movieDetails = new MovieDetails(movie);
             this.NavigationService.Navigate(movieDetails);
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

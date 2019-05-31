@@ -21,14 +21,16 @@ namespace BSK_2.Pages
     /// </summary>
     public partial class UpdatePageDirector : Page
     {
+        object movieObject;
         string selectedMiveTitleToEdit = "";
         public UpdatePageDirector()
         {
             InitializeComponent();
         }
 
-        public UpdatePageDirector(object director)
+        public UpdatePageDirector(object director, object movie = null)
         {
+            movieObject = movie;
             selectedMiveTitleToEdit = ((Director)director).Name;
 
             this.DirectorName = selectedMiveTitleToEdit;
@@ -63,6 +65,13 @@ namespace BSK_2.Pages
                 labelInfo.Visibility = Visible;
                 labelInfo.Content = "Success! (1 row(s) affected)";
             }
+        }
+
+        private void buttonReturn_Click(object sender, RoutedEventArgs e)
+        {
+            var movie = (Movie)movieObject;
+            MovieDetails movieDetails = new MovieDetails(movie);
+            this.NavigationService.Navigate(movieDetails);
         }
     }
 }

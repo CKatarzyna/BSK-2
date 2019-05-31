@@ -29,11 +29,11 @@
                 <Label x:Name="labelSource" Content="Source:" HorizontalAlignment="Left" Margin="10,179,0,0" VerticalAlignment="Top" Height="29" RenderTransformOrigin="0.482,-0.117"/>
 
                 <Button x:Name="buttonUpdate" Content="Update" HorizontalAlignment="Center"  Margin="0,0,0,64.8"  VerticalAlignment="Bottom" Width="100" Click="buttonUpdate_Click"/>
-                <Button x:Name="buttonReturn" Content="Return" HorizontalAlignment="Center"  Margin="0,0,0,34.8"  VerticalAlignment="Bottom" Width="100"/>
+                <Button x:Name="buttonReturn" Content="Return" HorizontalAlignment="Center"  Margin="0,0,0,34.8"  VerticalAlignment="Bottom" Width="100" Click="buttonReturn_Click"/>
 
             </Grid>
         </GroupBox>
-        <Label Name="labelInfo" Content="Error! Please check if your command syntax is correct!"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,31" VerticalAlignment="Bottom" Height="35" Width="590" BorderBrush="#FF1F34BB" BorderThickness="1"/>
+        <Label Name="labelInfo" Content="Error! Please check if your command syntax is correct!"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Margin="0,0,0,31" VerticalAlignment="Bottom" Height="35" Width="590" BorderBrush="#FF1F34BB" BorderThickness="1" Visibility="Hidden"/>
 
     </Grid>
     

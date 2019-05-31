@@ -22,7 +22,7 @@ namespace BSK_2.Pages
     public partial class MovieDetails : Page
     {
         string selectedMovieTitle;
-
+        object movieObject;
         public Visibility Visible { get; private set; }
         public System.Windows.Visibility Visibility { get; set; }
 
@@ -35,6 +35,7 @@ namespace BSK_2.Pages
         {
             InitializeComponent();
 
+            movieObject = movie;
             selectedMovieTitle = ((Movie)movie).Name;
             infoLabel2.Content = selectedMovieTitle;
 
@@ -48,9 +49,9 @@ namespace BSK_2.Pages
         private void listViewDirectors_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var item = (System.Windows.Controls.ListView)sender;
-            var movie = (Director)item.SelectedItem;
+            var director = (Director)item.SelectedItem;
 
-            UpdatePageDirector editPage = new UpdatePageDirector(movie);
+            UpdatePageDirector editPage = new UpdatePageDirector(director, movieObject);
             this.NavigationService.Navigate(editPage);
         }
 
@@ -59,7 +60,7 @@ namespace BSK_2.Pages
             var item = (System.Windows.Controls.ListView)sender;
             var actor = (Actor)item.SelectedItem;
 
-            UpdatePageActor updatePageActor = new UpdatePageActor(actor);
+            UpdatePageActor updatePageActor = new UpdatePageActor(actor, movieObject);
             this.NavigationService.Navigate(updatePageActor);
         }
 
@@ -72,6 +73,12 @@ namespace BSK_2.Pages
             {
                 infoLabel.Content = "Success! Movie deleted!";
             }
+        }
+
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            MoviesPage actionPage = new MoviesPage(null);
+            this.NavigationService.Navigate(actionPage);
         }
     }
 }
