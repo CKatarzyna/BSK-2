@@ -61,6 +61,9 @@
     <Compile Include="DataBase.cs" />
     <Compile Include="Director.cs" />
     <Compile Include="Movie.cs" />
+    <Compile Include="Pages\Insert\InsertPage.xaml.cs">
+      <DependentUpon>InsertPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Update\UpdatePageActor.xaml.cs">
       <DependentUpon>UpdatePageActor.xaml</DependentUpon>
     </Compile>
@@ -82,6 +85,7 @@
     <Compile Include="Pages\RegistrationPage.xaml.cs">
       <DependentUpon>RegistrationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Roles.cs" />
     <Compile Include="User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -95,7 +99,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\AddToBase.xaml">
+    <Page Include="Pages\Insert\InsertPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -129,9 +133,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pages\AddToBase.xaml.cs">
-      <DependentUpon>AddToBase.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -156,6 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Thread\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

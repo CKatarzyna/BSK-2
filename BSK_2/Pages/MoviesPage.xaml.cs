@@ -15,6 +15,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Security.Permissions;
+using System.Security.Principal;
 
 namespace BSK_2.Pages
 {
@@ -34,6 +37,8 @@ namespace BSK_2.Pages
         public MoviesPage(string infoLabelString = null)
         {
             InitializeComponent();
+            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("Fred"), new string[] { Roles.Administrator });
+
             if (infoLabelString != null)
             {
                 infoLabel.Content = infoLabelString;
@@ -46,6 +51,7 @@ namespace BSK_2.Pages
             //
             //jesli wszystko ok to polaczenie z baza danych 
 
+            // TODO: move to database class
             DataBase dataBaseMovie = new DataBase();
             
             string connectionString = dataBaseMovie.GetConnectionString();
@@ -68,6 +74,7 @@ namespace BSK_2.Pages
                 }
                 lvUsers.ItemsSource = items;
             }
+            SetButtonAccordingToRights(insertButton);
         }
 
         private void lvUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -79,9 +86,22 @@ namespace BSK_2.Pages
             this.NavigationService.Navigate(movieDetails);
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.Administrator)]
         private void Button_Click(object sender, RoutedEventArgs e)
         {
            
+        }
+
+        public void SetButtonAccordingToRights(System.Windows.Controls.Button btn)
+        {
+            if (Thread.CurrentPrincipal.IsInRole(Roles.Administrator))
+            {
+                btn.IsEnabled = true;
+            }
+            else
+            {
+                btn.IsEnabled = false;
+            }
         }
     }
 }

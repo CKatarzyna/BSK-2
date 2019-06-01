@@ -33,7 +33,7 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Content="Insert new movie" Click="Button_Click" Grid.Row="2" VerticalAlignment="Center" Width="114" HorizontalAlignment="Center" Height="20"/>
+            <Button Name="insertButton" Content="Insert new movie" Click="Button_Click" Grid.Row="2" VerticalAlignment="Center" Width="114" HorizontalAlignment="Center" Height="20"/>
             <Label Content="In order to get the overview about the movie just select right content."  Height="35" Width="590" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Row="3" BorderBrush="#FF1F34BB" BorderThickness="1" />
 
         </Grid>

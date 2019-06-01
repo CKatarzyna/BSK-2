@@ -2,7 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -34,6 +37,7 @@ namespace BSK_2.Pages
         public MovieDetails(object movie)
         {
             InitializeComponent();
+            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("Fred"), new string[] { Roles.Administrator });
 
             movieObject = movie;
             selectedMovieTitle = ((Movie)movie).Name;
@@ -43,9 +47,14 @@ namespace BSK_2.Pages
 
             dataBaseMovie.SelectMovieDirectors(selectedMovieTitle, dataBaseMovie.GetConnectionString(), listViewDirectors);
             dataBaseMovie.SelectMovieActors(selectedMovieTitle, dataBaseMovie.GetConnectionString(), listViewActors);
-        
+
+            SetButtonAccordingToRights(deleteButton);
+            SetListViewAccordingToRights(listViewActors);
+            SetListViewAccordingToRights(listViewDirectors);
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.Administrator)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.Moderator)]
         private void listViewDirectors_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var item = (System.Windows.Controls.ListView)sender;
@@ -55,6 +64,8 @@ namespace BSK_2.Pages
             this.NavigationService.Navigate(editPage);
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.Administrator)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.Moderator)]
         private void listViewActors_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var item = (System.Windows.Controls.ListView)sender;
@@ -64,6 +75,7 @@ namespace BSK_2.Pages
             this.NavigationService.Navigate(updatePageActor);
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.Administrator)]
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             DataBase dataBaseMovie = new DataBase();
@@ -79,6 +91,30 @@ namespace BSK_2.Pages
         {
             MoviesPage actionPage = new MoviesPage(null);
             this.NavigationService.Navigate(actionPage);
+        }
+
+        public void SetButtonAccordingToRights(System.Windows.Controls.Button btn)
+        {
+            if (Thread.CurrentPrincipal.IsInRole(Roles.Administrator))
+            {
+                btn.IsEnabled = true;
+            }
+            else
+            {
+                btn.IsEnabled = false;
+            }
+        }
+
+        public void SetListViewAccordingToRights(System.Windows.Controls.ListView list)
+        {
+            if (Roles.CheckPermissionRights())
+            {
+                list.IsEnabled = true;
+            }
+            else
+            {
+                list.IsEnabled = false;
+            }
         }
     }
 }

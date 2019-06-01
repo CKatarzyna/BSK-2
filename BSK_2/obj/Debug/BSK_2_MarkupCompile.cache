@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 S:\Informatyka [sem. 6]\Custom\Bezpieczenstwo Systemow Komputerowych\Projekt 2\BSK_2\App.xaml
-9839860536
+9-1259899586
 
-18-1260211285
+19-791359012
 151984215308
-MainWindow.xaml;Pages\AddToBase.xaml;Pages\Update\UpdatePageActor.xaml;Pages\Update\UpdatePageDirector.xaml;Pages\ErrorPage.xaml;Pages\LoginPage.xaml;Pages\MovieDetails.xaml;Pages\MoviesPage.xaml;Pages\RegistrationPage.xaml;
+MainWindow.xaml;Pages\Insert\InsertPage.xaml;Pages\Update\UpdatePageActor.xaml;Pages\Update\UpdatePageDirector.xaml;Pages\ErrorPage.xaml;Pages\LoginPage.xaml;Pages\MovieDetails.xaml;Pages\MoviesPage.xaml;Pages\RegistrationPage.xaml;
 
 False
 

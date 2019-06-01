@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Permissions;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,6 +26,7 @@ namespace BSK_2.Pages
     {
         object movieObject;
         string selectedMiveTitleToEdit = "";
+
         public UpdatePageDirector()
         {
             InitializeComponent();
@@ -30,6 +34,33 @@ namespace BSK_2.Pages
 
         public UpdatePageDirector(object director, object movie = null)
         {
+
+            //static class Roles
+            //{
+            //    public const string Administrator = "ADMIN";
+            //}
+            //static class Program
+            //{
+            //    static void Main()
+            //    {
+            //        Thread.CurrentPrincipal = new GenericPrincipal(
+            //            new GenericIdentity("Fred"), new string[] { Roles.Administrator });
+            //        DeleteDatabase(); // fine
+            //        Thread.CurrentPrincipal = new GenericPrincipal(
+            //            new GenericIdentity("Barney"), new string[] { });
+            //        DeleteDatabase(); // boom
+            //    }
+
+            //    [PrincipalPermission(SecurityAction.Demand, Role = Roles.Administrator)]
+            //    public static void DeleteDatabase()
+            //    {
+            //        Console.WriteLine(
+            //            Thread.CurrentPrincipal.Identity.Name + " has deleted the database...");
+            //    }
+            //}
+
+           
+            
             movieObject = movie;
             selectedMiveTitleToEdit = ((Director)director).Name;
 
@@ -59,8 +90,8 @@ namespace BSK_2.Pages
             updateDirector.Nationality = nationalityBox.Text;
             updateDirector.DateOfBirth = dateOfBirthBox.Text;
             updateDirector.Source = sourceBox.Text;
-                
-            if (dataBaseMovie.UpdateMovieDirector(selectedMiveTitleToEdit, updateDirector, dataBaseMovie.GetConnectionString()) == 1 )
+
+            if (dataBaseMovie.UpdateMovieDirector(selectedMiveTitleToEdit, updateDirector, dataBaseMovie.GetConnectionString()) == 1)
             {
                 labelInfo.Visibility = Visible;
                 labelInfo.Content = "Success! (1 row(s) affected)";

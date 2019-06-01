@@ -25,7 +25,7 @@
             <Button Name="deleteButton" Content="Delete this movie" Grid.Row="2" VerticalAlignment="Center" Width="114" HorizontalAlignment="Center" Height="20" Click="Button_Click" Margin="0,0,0,30"/>
             <Button Name="returnButton" Content="Return" Grid.Row="2" VerticalAlignment="Center" Width="114" HorizontalAlignment="Center" Height="20" Margin="0,0,0,-30" Click="returnButton_Click"/>
 
-            <ListView  Name="listViewDirectors" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" MaxWidth="590" MaxHeight="98" Width="590" Height="98" SelectionChanged="listViewDirectors_SelectionChanged" Margin="0,0,0,306" >
+            <ListView  Name="listViewDirectors" Focusable="False" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" MaxWidth="590" MaxHeight="98" Width="590" Height="98" SelectionChanged="listViewDirectors_SelectionChanged" Margin="0,0,0,306" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Name}" />

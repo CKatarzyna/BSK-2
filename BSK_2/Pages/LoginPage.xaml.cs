@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -134,6 +136,7 @@ namespace BSK_2.Pages
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             MoviesPage actionPage = new MoviesPage("Pominieto logowanie");
+            //Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("Fred"), new string[] { });
             this.NavigationService.Navigate(actionPage);
         }
     }
