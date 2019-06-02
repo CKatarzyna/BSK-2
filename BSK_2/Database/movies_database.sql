@@ -14,6 +14,14 @@ CREATE TABLE Rezyser (
 )
 GO
 
+CREATE TABLE Konto (
+	Id_Konto INTEGER IDENTITY(1,1) PRIMARY KEY,
+	Login_ varchar(20),
+	Haslo varchar(20),
+	Uprawnienia varchar(30),
+)
+GO
+
 CREATE TABLE Film (
 	Id_Film INTEGER IDENTITY(1,1) PRIMARY KEY,
 	Id_Rezyser INTEGER,
@@ -28,16 +36,8 @@ CREATE TABLE Film (
 	Odnosnik varchar(70),
 	FOREIGN KEY (Id_Rezyser) REFERENCES Rezyser (Id_Rezyser)
        ON DELETE CASCADE,
-	FOREIGN KEY (Id_Rezyser) REFERENCES Rezyser (Id_Rezyser)
+	FOREIGN KEY (Id_Konto) REFERENCES Konto (Id_Konto)
        ON DELETE CASCADE
-)
-GO
-
-CREATE TABLE Konto (
-	Id INTEGER IDENTITY(1,1) PRIMARY KEY,
-	Login_ varchar(20),
-	Haslo varchar(20),
-	Uprawnienia varchar(30),
 )
 GO
 
@@ -65,10 +65,9 @@ GO
 USE BSK_2;
 DROP TABLE AktorWystepuje;
 DROP TABLE Aktor;
-DROP TABLE Konto;
-DROP TABLE Uzytkownik;
 DROP TABLE Film;
 DROP TABLE Rezyser;
+DROP TABLE Konto;
 
 USE BSK_2;
 Select * from Rezyser;

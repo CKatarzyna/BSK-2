@@ -77,6 +77,11 @@ Where Film.Czas_Trwania > 1.5;
 
 USE BSK_2
 GO
-SELECT Konto.Uprawnienia
+SELECT Konto.Uprawnienia, Konto.Login_
 FROM Konto
-WHERE Konto.Login_ = 'dsd';
+WHERE Konto.Login_ = 'user';
+
+Select Konto.Uprawnienia,
+from Konto
+Inner Join Film On Film.Id_Konto = Konto.Id
+WHERE Konto.Login_ = 'user';
