@@ -28,16 +28,16 @@ namespace BSK_2.Pages
     public partial class MoviesPage : Page
     {
         public System.Windows.Visibility Visibility { get; set; }
-
+        public string CurrentUserRights { get; set; }
+        public string CurrentUserLogin { get; set; }
         public MoviesPage()
         {
             InitializeComponent();
         }
 
-        public MoviesPage(string infoLabelString = null)
+        public MoviesPage(string userLogin, string infoLabelString = null)
         {
             InitializeComponent();
-            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("Fred"), new string[] { Roles.Administrator });
 
             if (infoLabelString != null)
             {
@@ -48,13 +48,16 @@ namespace BSK_2.Pages
                 infoLabel.Visibility = Visibility.Hidden;
             }
 
-            //
             //jesli wszystko ok to polaczenie z baza danych 
 
             // TODO: move to database class
             DataBase dataBaseMovie = new DataBase();
-            
+
             string connectionString = dataBaseMovie.GetConnectionString();
+            CurrentUserRights = dataBaseMovie.GetUserPermissionRights(userLogin, connectionString);
+            CurrentUserLogin = userLogin;
+
+            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(userLogin), new string[] { CurrentUserRights });
 
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
@@ -82,7 +85,7 @@ namespace BSK_2.Pages
             var item = (System.Windows.Controls.ListView)sender;
             var movie = (Movie)item.SelectedItem;
 
-            MovieDetails movieDetails = new MovieDetails(movie);
+            MovieDetails movieDetails = new MovieDetails(movie, CurrentUserRights, CurrentUserLogin);
             this.NavigationService.Navigate(movieDetails);
         }
 

@@ -11,11 +11,19 @@ from Film
 Inner Join Rezyser On Film.Id_Rezyser = Rezyser.Id_Rezyser;
 --Where Rezyser.Imie = 'Quentin';
 
---!
+--! REZYSER
 Select Rezyser.Imie, Rezyser.Nazwisko, Rezyser.Narodowosc, Rezyser.Data_Urodzenia, Rezyser.Odnosnik
 from Film
 Inner Join Rezyser On Film.Id_Rezyser = Rezyser.Id_Rezyser
 Where Film.Nazwa = 'The Professor';
+
+UPDATE Rezyser
+SET Imie = 'Wayne', Nazwisko = '', Narodowosc = '', Data_Urodzenia = '', Odnosnik = ''
+WHERE Rezyser.Nazwisko = 'Roberts';
+
+UPDATE Rezyser 
+SET Imie = 'Quentin', Nazwisko = 'Tarantino', Narodowosc = 'Usa', Data_Urodzenia = '', Odnosnik = 'https://www.filmweb.pl/person/Quentin.Tarantino' 
+WHERE Rezyser.Nazwisko = 'Tarantino';
 
 --wyswietlenie filmu oraz aktorow w nim wystepujacych
 Select Film.Nazwa, Aktor.Imie, Aktor.Nazwisko
@@ -41,7 +49,7 @@ Inner Join AktorWystepuje On Film.Id_Film = AktorWystepuje.Id_Film
 Inner Join Aktor On AktorWystepuje.Id_Aktor = Aktor.Id_Aktor
 Inner Join Rezyser On Film.Id_Rezyser = Rezyser.Id_Rezyser;
 
- --!
+ --! FILM
 Select Film.Nazwa, Film.Rok_Wydania, Film.Typ, Film.Ocena, Film.Czas_Trwania, Film.Odnosnik
 from Film
 Where Film.Nazwa = 'The Professor';
@@ -54,7 +62,7 @@ Inner Join Aktor On AktorWystepuje.Id_Aktor = Aktor.Id_Aktor
 Inner Join Rezyser On Film.Id_Rezyser = Rezyser.Id_Rezyser
 Where Film.Nazwa = 'The Professor';
 
---!
+--! AKTOR
 Select  Aktor.Imie, Aktor.Nazwisko, Aktor.Narodowosc, Aktor.Biografia, Aktor.Data_Urodzenia, Aktor.Odnosnik
 from Film
 Inner Join AktorWystepuje On Film.Id_Film = AktorWystepuje.Id_Film
@@ -66,3 +74,9 @@ Select Film.Nazwa, Rezyser.Imie, Rezyser.Nazwisko, Film.Rok_Wydania, Film.Typ,  
 from Film
 Inner Join Rezyser On Film.Id_Rezyser = Rezyser.Id_Rezyser
 Where Film.Czas_Trwania > 1.5;
+
+USE BSK_2
+GO
+SELECT Konto.Uprawnienia
+FROM Konto
+WHERE Konto.Login_ = 'dsd';

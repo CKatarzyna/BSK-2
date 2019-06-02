@@ -22,17 +22,21 @@ namespace BSK_2.Pages.Update
     {
         string selectedMiveTitleToEdit;
         string selectedMovieActorSurname = "";
+        public string CurrentUserRights { get; set; }
+        public string CurrentUserLogin { get; set; }
 
         public UpdatePageActor()
         {
             InitializeComponent();
         }
 
-        public UpdatePageActor(object actor, object movie = null)
+        public UpdatePageActor(object actor, string currentUserRights, string userLogin, object movie = null)
         {
             movieObject = movie;
             selectedMiveTitleToEdit = ((Actor)actor).Name;
             selectedMovieActorSurname = ((Actor)actor).Surname;
+            CurrentUserRights = currentUserRights;
+            CurrentUserLogin = userLogin;
 
             this.ActorName = selectedMiveTitleToEdit;
             this.Surname = ((Actor)actor).Surname;
@@ -75,7 +79,7 @@ namespace BSK_2.Pages.Update
         private void buttonReturn_Click(object sender, RoutedEventArgs e)
         {
             var movie = (Movie)movieObject;
-            MovieDetails movieDetails = new MovieDetails(movie);
+            MovieDetails movieDetails = new MovieDetails(movie, CurrentUserRights, CurrentUserLogin);
             this.NavigationService.Navigate(movieDetails);
         }
     }

@@ -22,6 +22,40 @@ namespace BSK_2
             return "Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BSK_2;Data Source=(local)";
         }
 
+        public string GetUserPermissionRights(string userLogin, string connectionString)
+        {
+            //SELECT Konto.Uprawnienia
+            //FROM Konto
+            //WHERE Konto.Login_ = 'fdds';
+
+            string returnPerrmision = "";
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+
+                SqlCommand sqlCommand = new SqlCommand("SELECT Konto.Uprawnienia " +
+                                                         "FROM Konto " +
+                                                         "Where Konto.Login_ = @UserLogin; ", sqlConnection);
+                SqlParameter sqlParameter = new SqlParameter("@UserLogin", userLogin);
+                sqlCommand.Parameters.Add(sqlParameter);
+
+                sqlCommand.CommandType = System.Data.CommandType.Text;
+
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
+                sqlDataAdapter.SelectCommand = sqlCommand;
+
+                DataTable dataTable = new DataTable();
+
+                sqlDataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    returnPerrmision = row["Uprawnienia"].ToString();
+                }
+            }
+            return returnPerrmision;
+        }
+
         public void SelectMovieDirectors(string movieTitle, string connectionString, ListView listView)
         {
             //Select Rezyser.Imie, Rezyser.Nazwisko, Rezyser.Narodowosc, Rezyser.Data_Urodzenia, Rezyser.Odnosnik

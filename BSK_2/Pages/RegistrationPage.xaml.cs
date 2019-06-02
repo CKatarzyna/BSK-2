@@ -67,7 +67,7 @@ namespace BSK_2.Pages
                         //PasswordHash passwordHash = new PasswordHash(userPassword);
                         //userPasswordHash = passwordHash.CreateHash();
 
-                        SqlCommand sqlCommand = new SqlCommand("Insert into Konto (Login,Haslo) values('" + userLogin + "', '" + userPassword + "')", sqlConnection);
+                        SqlCommand sqlCommand = new SqlCommand("Insert into Konto (Login_,Haslo) values('" + userLogin + "', '" + userPassword + "')", sqlConnection);
                         sqlCommand.CommandType = System.Data.CommandType.Text;
                         sqlCommand.ExecuteNonQuery();
 

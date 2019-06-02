@@ -28,6 +28,7 @@ Update Film Set Id_Rezyser = 1 Where Nazwa = 'The Professor';
 Update Film Set Id_Rezyser = 2 Where Nazwa = 'Murder on the Orient Express';
 Update Film Set Id_Rezyser = 3 Where Nazwa = 'The Hateful Eight' or  Nazwa = 'Django Unchained';
 
+
 Select * from Film;
 Select * from Aktor;
 
@@ -43,3 +44,6 @@ Insert into AktorWystepuje (Id_Film, Id_Aktor) values (4, 4);
 Insert into AktorWystepuje (Id_Film, Id_Aktor) values (4, 5);
 Insert into AktorWystepuje (Id_Film, Id_Aktor) values (4, 6);
 Insert into AktorWystepuje (Id_Film, Id_Aktor) values (4, 7);
+
+Insert into Konto(Login_, Haslo, Uprawnienia) values ('user', '6ygU*yrt$>2', 'MODERATOR');
+Update Film Set Id_Konto = 1 Where Nazwa = 'The Professor';

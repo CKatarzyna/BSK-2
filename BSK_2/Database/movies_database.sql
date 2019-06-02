@@ -16,7 +16,8 @@ GO
 
 CREATE TABLE Film (
 	Id_Film INTEGER IDENTITY(1,1) PRIMARY KEY,
-	Id_Rezyser INTEGER FOREIGN KEY REFERENCES Rezyser,
+	Id_Rezyser INTEGER,
+	Id_Konto INTEGER,
 	Nazwa varchar(30),
 	Typ varchar(20),
 	Rok_Wydania varchar(4),
@@ -25,19 +26,16 @@ CREATE TABLE Film (
 	Opis varchar(300),
 	Zdjecie varchar(70),
 	Odnosnik varchar(70),
-)
-GO
-
-CREATE TABLE Uzytkownik (
-	Id INTEGER IDENTITY(1,1) PRIMARY KEY,
-	Imie varchar(20),
-	Nazwisko varchar(20),
+	FOREIGN KEY (Id_Rezyser) REFERENCES Rezyser (Id_Rezyser)
+       ON DELETE CASCADE,
+	FOREIGN KEY (Id_Rezyser) REFERENCES Rezyser (Id_Rezyser)
+       ON DELETE CASCADE
 )
 GO
 
 CREATE TABLE Konto (
 	Id INTEGER IDENTITY(1,1) PRIMARY KEY,
-	Login varchar(20),
+	Login_ varchar(20),
 	Haslo varchar(20),
 	Uprawnienia varchar(30),
 )
@@ -55,8 +53,12 @@ CREATE TABLE Aktor (
 GO
 
 CREATE TABLE AktorWystepuje (
-	Id_Film INTEGER FOREIGN KEY REFERENCES Film,
-	Id_Aktor INTEGER FOREIGN KEY REFERENCES Aktor,
+	Id_Film INTEGER,
+	Id_Aktor INTEGER,
+	FOREIGN KEY (Id_Film) REFERENCES Film (Id_Film)
+       ON DELETE CASCADE,
+	FOREIGN KEY (Id_Aktor) REFERENCES Aktor (Id_Aktor)
+       ON DELETE CASCADE
 )
 GO
 

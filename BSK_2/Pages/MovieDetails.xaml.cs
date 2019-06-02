@@ -28,22 +28,27 @@ namespace BSK_2.Pages
         object movieObject;
         public Visibility Visible { get; private set; }
         public System.Windows.Visibility Visibility { get; set; }
+        public string CurrentUserRights { get; set; }
+        public string CurrentUserLogin { get; set; }
 
         public MovieDetails()
         {
             InitializeComponent();
         }
 
-        public MovieDetails(object movie)
+        public MovieDetails(object movie, string currentUserRights, string userLogin)
         {
             InitializeComponent();
-            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("Fred"), new string[] { Roles.Administrator });
-
+            
             movieObject = movie;
             selectedMovieTitle = ((Movie)movie).Name;
             infoLabel2.Content = selectedMovieTitle;
+            CurrentUserRights = currentUserRights;
+            CurrentUserLogin = userLogin;
 
             DataBase dataBaseMovie = new DataBase();
+
+            Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(userLogin), new string[] { currentUserRights });
 
             dataBaseMovie.SelectMovieDirectors(selectedMovieTitle, dataBaseMovie.GetConnectionString(), listViewDirectors);
             dataBaseMovie.SelectMovieActors(selectedMovieTitle, dataBaseMovie.GetConnectionString(), listViewActors);
@@ -51,6 +56,7 @@ namespace BSK_2.Pages
             SetButtonAccordingToRights(deleteButton);
             SetListViewAccordingToRights(listViewActors);
             SetListViewAccordingToRights(listViewDirectors);
+            string per = dataBaseMovie.GetUserPermissionRights("user", dataBaseMovie.GetConnectionString());
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = Roles.Administrator)]
@@ -60,7 +66,7 @@ namespace BSK_2.Pages
             var item = (System.Windows.Controls.ListView)sender;
             var director = (Director)item.SelectedItem;
 
-            UpdatePageDirector editPage = new UpdatePageDirector(director, movieObject);
+            UpdatePageDirector editPage = new UpdatePageDirector(director, CurrentUserRights, CurrentUserLogin, movieObject);
             this.NavigationService.Navigate(editPage);
         }
 
@@ -71,7 +77,7 @@ namespace BSK_2.Pages
             var item = (System.Windows.Controls.ListView)sender;
             var actor = (Actor)item.SelectedItem;
 
-            UpdatePageActor updatePageActor = new UpdatePageActor(actor, movieObject);
+            UpdatePageActor updatePageActor = new UpdatePageActor(actor, CurrentUserRights, CurrentUserLogin, movieObject);
             this.NavigationService.Navigate(updatePageActor);
         }
 
@@ -89,7 +95,7 @@ namespace BSK_2.Pages
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
-            MoviesPage actionPage = new MoviesPage(null);
+            MoviesPage actionPage = new MoviesPage(CurrentUserLogin, null);
             this.NavigationService.Navigate(actionPage);
         }
 

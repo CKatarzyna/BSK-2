@@ -26,7 +26,6 @@ namespace BSK_2.Pages
     public partial class LoginPage : Page
     {
         private string userLogin;
-        // TODO: wykorzystac przy generacji hashu przez funkcje skrotu
         private string userPassword;
 
         public LoginPage()
@@ -53,7 +52,7 @@ namespace BSK_2.Pages
                 using (SqlConnection sqlConnection = new SqlConnection(connectionString))
                 {
                     sqlConnection.Open();
-                    SqlCommand sqlCommand = new SqlCommand("Select * from Konto where Login='" + userLogin + "' and Haslo='" + userPassword + "'", sqlConnection);
+                    SqlCommand sqlCommand = new SqlCommand("Select * from Konto where Login_='" + userLogin + "' and Haslo='" + userPassword + "'", sqlConnection);
                     sqlCommand.CommandType = System.Data.CommandType.Text;
 
                     SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
@@ -64,7 +63,7 @@ namespace BSK_2.Pages
                     if (dataSet.Tables[0].Rows.Count > 0)
                     {
                         //odnaleziono w bazie i pomyslnie zalogowano
-                        MoviesPage actionPage = new MoviesPage("Zalogowano poprawnie");
+                        MoviesPage actionPage = new MoviesPage(userLogin, "Zalogowano poprawnie");
                         this.NavigationService.Navigate(actionPage);
                         ResetBoxes();
                     }
@@ -135,7 +134,7 @@ namespace BSK_2.Pages
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            MoviesPage actionPage = new MoviesPage("Pominieto logowanie");
+            MoviesPage actionPage = new MoviesPage(userLogin, "Pominieto logowanie");
             //Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("Fred"), new string[] { });
             this.NavigationService.Navigate(actionPage);
         }

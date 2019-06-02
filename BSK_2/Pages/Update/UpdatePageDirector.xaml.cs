@@ -26,13 +26,15 @@ namespace BSK_2.Pages
     {
         object movieObject;
         string selectedMiveTitleToEdit = "";
+        public string CurrentUserRights { get; set; }
+        public string CurrentUserLogin { get; set; }
 
         public UpdatePageDirector()
         {
             InitializeComponent();
         }
 
-        public UpdatePageDirector(object director, object movie = null)
+        public UpdatePageDirector(object director, string currentUserRights, string userLogin, object movie = null)
         {
 
             //static class Roles
@@ -59,8 +61,9 @@ namespace BSK_2.Pages
             //    }
             //}
 
-           
-            
+
+            CurrentUserRights = currentUserRights;
+            CurrentUserLogin = userLogin;
             movieObject = movie;
             selectedMiveTitleToEdit = ((Director)director).Name;
 
@@ -101,7 +104,7 @@ namespace BSK_2.Pages
         private void buttonReturn_Click(object sender, RoutedEventArgs e)
         {
             var movie = (Movie)movieObject;
-            MovieDetails movieDetails = new MovieDetails(movie);
+            MovieDetails movieDetails = new MovieDetails(movie, CurrentUserRights, CurrentUserLogin);
             this.NavigationService.Navigate(movieDetails);
         }
     }
