@@ -25,6 +25,7 @@ namespace BSK_2
         public MainWindow()
         {
             InitializeComponent();
+            ShowsNavigationUI = false;
         }
     }
 }
