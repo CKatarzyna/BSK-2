@@ -45,5 +45,7 @@ Insert into AktorWystepuje (Id_Film, Id_Aktor) values (4, 5);
 Insert into AktorWystepuje (Id_Film, Id_Aktor) values (4, 6);
 Insert into AktorWystepuje (Id_Film, Id_Aktor) values (4, 7);
 
-Insert into Konto(Login_, Haslo, Uprawnienia) values ('user', '6ygU*yrt$>2', 'MODERATOR');
+Insert into Konto(Login_, Haslo, Uprawnienia) values ('moderator', '6ygU*yrt$>2', 'MODERATOR');
+Insert into Konto(Login_, Haslo, Uprawnienia) values ('admin', '6ygU*yrt$s>2', 'ADMIN');
+Insert into Konto(Login_, Haslo, Uprawnienia) values ('user', '6ygU*yrt$s>2s', 'USER');
 Update Film Set Id_Konto = 1 Where Nazwa = 'The Professor';

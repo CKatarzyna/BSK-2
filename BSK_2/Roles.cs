@@ -11,7 +11,7 @@ namespace BSK_2
     {
         public const string Administrator = "ADMIN";
         public const string Moderator = "MODERATOR";
-        public const string Guest = "GUEST";
+        public const string Guest = "USER";
 
         static public bool CheckPermissionRights()
         {
