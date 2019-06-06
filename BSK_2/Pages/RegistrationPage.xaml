@@ -9,19 +9,24 @@
       Title="RegistrationPage">
 
     <Grid Margin="10,0,10,10">
-        <GroupBox Header="Register" Height="250" Margin="0" Width="400" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE07B7B">
+        <GroupBox Header="Register" Height="280" Margin="174,80" Width="432" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#FFE07B7B">
             <Grid>
                 <Label Content="Login:" Margin="20,51,102,149" Foreground="Black"/>
-                <TextBox Name="loginBox" HorizontalAlignment="Center" Margin="86,53,102,149" TextWrapping="Wrap" VerticalAlignment="Center" Width="200" Height="26" Background="White"/>
+                <TextBox Name="loginBox" HorizontalAlignment="Center" Margin="102,53,118,179" TextWrapping="Wrap" VerticalAlignment="Center" Width="200" Height="26" Background="White"/>
                 <Label Content="Password:" Margin="20,94,102,108" Foreground="Black"/>
-                <PasswordBox  Name="passwordBox" HorizontalAlignment="Center" Margin="86,96,102,108" VerticalAlignment="Center" Width="200" Height="24"/>
+                <PasswordBox  Name="passwordBox" HorizontalAlignment="Center" Margin="102,99,118,135" VerticalAlignment="Center" Width="200" Height="24"/>
                 <Label Content="Confirm" Margin="20,130,102,62" Foreground="Black"/>
                 <Label Content ="Password:" Margin="20,144,102,60" Foreground="Black"/>
-                <PasswordBox  Name="passwordConfirmBox" HorizontalAlignment="Center" Margin="86,137,102,67" VerticalAlignment="Center" Width="200" Height="24"/>
-                <Button Content="i" Margin="0,-76,70,20"  Width="20" Height="18" Click="Login_Info_Click" Foreground="#FF020202" HorizontalAlignment="Right" VerticalAlignment="Center"/>
-                <Button Content="i" Margin="0,8,70,20" Width="20" Height="18" Click="Password_Info_Click" Foreground="#FF020202" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <PasswordBox  Name="passwordConfirmBox" HorizontalAlignment="Center" Margin="102,142,118,92" VerticalAlignment="Center" Width="200" Height="24"/>
+                <Button Content="i" Margin="0,57,70,183"  Width="20" Height="18" Click="Login_Info_Click" Foreground="#FF020202" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+                <Button Content="i" Margin="0,102,70,138" Width="20" Height="18" Click="Password_Info_Click" Foreground="#FF020202" HorizontalAlignment="Right" VerticalAlignment="Center"/>
                 <Button Content="Submit" HorizontalAlignment="Center" Margin="148,0,164,20" VerticalAlignment="Bottom" Click="Button_Click" Width="76"/>
-                <Label Content="" Name="FailureMessage" Margin="86,158,102,42" Foreground="Red"/>
+                <ComboBox Name="comboBox" HorizontalAlignment="Left" Margin="140,181,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="ComboBox_SelectionChanged">
+                    <ListBoxItem Content="USER"/>
+                    <ListBoxItem Content="MODERATOR"/>
+                    <ListBoxItem Content="ADMIN"/>
+                </ComboBox>
+
             </Grid>
         </GroupBox>
     </Grid>

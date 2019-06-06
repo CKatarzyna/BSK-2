@@ -26,6 +26,7 @@ namespace BSK_2.Pages
         private string userPassword;
         private string userPasswordConfirm;
         private string userPasswordHash;
+        private string userRights;
 
         public RegistrationPage()
         {
@@ -67,7 +68,7 @@ namespace BSK_2.Pages
                         //PasswordHash passwordHash = new PasswordHash(userPassword);
                         //userPasswordHash = passwordHash.CreateHash();
 
-                        SqlCommand sqlCommand = new SqlCommand("Insert into Konto (Login_,Haslo) values('" + userLogin + "', '" + userPassword + "')", sqlConnection);
+                        SqlCommand sqlCommand = new SqlCommand("Insert into Konto (Login_,Haslo,Uprawnienia) values('" + userLogin + "', '" + userPassword + "', '" + userRights + "')", sqlConnection);
                         sqlCommand.CommandType = System.Data.CommandType.Text;
                         sqlCommand.ExecuteNonQuery();
 
@@ -81,7 +82,7 @@ namespace BSK_2.Pages
                 }
                 else
                 {
-                    FailureMessage.Content = "Passwords are not the same";
+                    //FailureMessage.Content = "Passwords are not the same";
                 }
             }
         }
@@ -129,14 +130,14 @@ namespace BSK_2.Pages
         private void IncorrectLogin()
         {
             loginBox.Text = "";
-            FailureMessage.Content = "Login incorrect";
+            //FailureMessage.Content = "Login incorrect";
         }
 
         private void IncorrectPassword()
         {
             passwordBox.Password = "";
             passwordConfirmBox.Password = "";
-            FailureMessage.Content = "Password incorrect";
+            //FailureMessage.Content = "Password incorrect";
         }
 
         private void ResetBoxes()
@@ -144,7 +145,13 @@ namespace BSK_2.Pages
             loginBox.Text = "";
             passwordBox.Password = "";
             passwordConfirmBox.Password = "";
-            FailureMessage.Content = "";
+            //FailureMessage.Content = "";
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            userRights = String.Empty;
+            userRights = ((ListBoxItem)comboBox.SelectedItem).Content.ToString();
         }
     }
 }
