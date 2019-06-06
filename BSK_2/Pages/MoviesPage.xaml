@@ -21,6 +21,7 @@
                 <RowDefinition Height="97*"/>
             </Grid.RowDefinitions>
             <Label Name="infoLabel" Content=""  Height="35" Width="590"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Row="0" BorderBrush="#FF1F34BB" BorderThickness="1" />
+            <Button Name="logOffButton" Content="Log off" Grid.Row="3" VerticalAlignment="Center" Width="114" HorizontalAlignment="Right" Height="20" Margin="0,0,30,0" Click="logOffButton_Click"/>
 
             <ListView  Name="lvUsers" SelectionChanged="lvUsers_SelectionChanged" Height="403" Width="590" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1">
                 <ListView.View>
@@ -33,7 +34,6 @@
                     </GridView>
                 </ListView.View>
             </ListView>
-            <Button Name="insertButton" Content="Insert new movie" Click="Button_Click" Grid.Row="2" VerticalAlignment="Center" Width="114" HorizontalAlignment="Center" Height="20"/>
             <Label Content="In order to get the overview about the movie just select right content."  Height="35" Width="590" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  Grid.Row="3" BorderBrush="#FF1F34BB" BorderThickness="1" />
 
         </Grid>

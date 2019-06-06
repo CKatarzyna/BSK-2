@@ -17,7 +17,7 @@
                 <TextBox Name="loginBox" HorizontalAlignment="Center" Margin="86,48,102,154" TextWrapping="Wrap" VerticalAlignment="Center" Width="200" Height="26" Background="White"/>
                 <Button Content="Sign in" HorizontalAlignment="Center" Margin="148,0,164,60" VerticalAlignment="Bottom" Click="Button_Click" Width="76"/>
                 <Button Content="Register" HorizontalAlignment="Center" Margin="148,0,165,30" VerticalAlignment="Bottom" Width="75" Click="Button_Click_1"/>
-                <Button HorizontalAlignment="Right" Click="Button_Click_2" Margin="0,0,5,5" Content="Skip" VerticalAlignment="Bottom" Foreground="#FF020202" Width="39" />
+                <Button HorizontalAlignment="Right" Click="Button_Click_2" Margin="0,0,5,5" IsEnabled="False" Content="Skip" VerticalAlignment="Bottom" Foreground="#FF020202" Width="39" />
                 <Label Content="" Name="FailureMessage" Margin="86,121,102,79.2" Foreground="Red"/>
             </Grid>
         </GroupBox>

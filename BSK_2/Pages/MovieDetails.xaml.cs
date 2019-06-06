@@ -122,5 +122,11 @@ namespace BSK_2.Pages
                 list.IsEnabled = false;
             }
         }
+
+        private void logOffButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginPage loginPage = new LoginPage();
+            this.NavigationService.Navigate(loginPage);
+        }
     }
 }

@@ -77,7 +77,6 @@ namespace BSK_2.Pages
                 }
                 lvUsers.ItemsSource = items;
             }
-            SetButtonAccordingToRights(insertButton);
         }
 
         private void lvUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -87,12 +86,6 @@ namespace BSK_2.Pages
 
             MovieDetails movieDetails = new MovieDetails(movie, CurrentUserRights, CurrentUserLogin);
             this.NavigationService.Navigate(movieDetails);
-        }
-
-        [PrincipalPermission(SecurityAction.Demand, Role = Roles.Administrator)]
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-           
         }
 
         public void SetButtonAccordingToRights(System.Windows.Controls.Button btn)
@@ -105,6 +98,12 @@ namespace BSK_2.Pages
             {
                 btn.IsEnabled = false;
             }
+        }
+
+        private void logOffButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoginPage loginPage = new LoginPage();
+            this.NavigationService.Navigate(loginPage);
         }
     }
 }

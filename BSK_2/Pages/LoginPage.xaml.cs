@@ -63,14 +63,14 @@ namespace BSK_2.Pages
                     if (dataSet.Tables[0].Rows.Count > 0)
                     {
                         //odnaleziono w bazie i pomyslnie zalogowano
-                        MoviesPage actionPage = new MoviesPage(userLogin, "Zalogowano poprawnie");
+                        MoviesPage actionPage = new MoviesPage(userLogin, "Welcome");
                         this.NavigationService.Navigate(actionPage);
                         ResetBoxes();
                     }
                     else
                     {
                         //nie ma takich danych w bazie
-                        ErrorPage errorPage = new ErrorPage("Wprowadzono bledne dane do logowania");
+                        ErrorPage errorPage = new ErrorPage("Error during log in process! Please try again");
                         this.NavigationService.Navigate(errorPage);
                         ResetBoxes();
                     }
@@ -134,8 +134,7 @@ namespace BSK_2.Pages
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            MoviesPage actionPage = new MoviesPage(userLogin, "Pominieto logowanie");
-            //Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity("Fred"), new string[] { });
+            MoviesPage actionPage = new MoviesPage(userLogin, "Skiped");
             this.NavigationService.Navigate(actionPage);
         }
     }
